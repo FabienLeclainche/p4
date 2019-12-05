@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <title>Article</title>
 </head>
 <body>
@@ -13,14 +16,10 @@
 		<h1>
 		    <?= $post->getTitle() ?>
 		</h1>
-
 		<?php
 		?>
 		<div class="post"><?php echo $post->getContent(); ?></div>
-	
-
 		<h2>Laisser un commentaire</h2>
-
 		<form action="?action=create_comment_action&post_id=<?= $post->getId() ?>" method="POST">
 		    <div>
 		        <input placeholder="Nom et Prénom" name="auteur" class="form-control input-sm">
@@ -32,30 +31,24 @@
 		    </div>
 		    <button type="submit" class="btn btn-primary">Envoyer</button>
 		</form>
-
-
 		<h2>Commentaires:</h2>
-
 		<?php
 		foreach ($comments as $comment) {
 		    ?>
 		    <div>
-		        <?php echo $comment->getAuteur(); ?>:
-		        <p><?php echo $comment->getCommentaires(); ?>
+		        <?php echo htmlspecialchars($comment->getAuteur()); ?>:
+		        <p>
+                    <?php echo htmlspecialchars($comment->getCommentaires()); ?>
 		        <?php if ($comment->getSignaler() === "0") { ?>
 		            <a href="?action=signaler_commentaire&comment_id=<?= $comment->getId() ?>&post_id=<?= $post->getId() ?>">Signaler</a>
 		        <?php } else { ?>
 		            <b>Déjà signalé</b>
 		        <?php } ?></p>
-
 		    </div>
 		    <?php
 		}
 		?>
 	</div>
-
 	<?php require('footer.php'); ?>
-
-
 </body>
 </html>

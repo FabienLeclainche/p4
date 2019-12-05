@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="public/css/style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <title>Billet simple pour l'Alaska</title>
-</head>
-<body>
-
-
 <header>
     <div class="row">
         <nav class="navbar">
@@ -24,7 +8,7 @@
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                     Menu
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu" >
                     <a class="dropdown-item" href="index.php?action=accueil">Accueil</a>
                     <?php
                     foreach ($postsMenu as $postMenu) {
@@ -35,11 +19,8 @@
                     }
                     ?>
                 </div>
-
+                </div>
         </nav>
     </div>
 </header>
 
-
-</body>
-</html>
